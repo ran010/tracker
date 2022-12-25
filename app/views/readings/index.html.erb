@@ -1,0 +1,24 @@
+<h3>Daily Report</h3>
+
+<button>Daily Report</button>
+<button>Monthly Report</button>
+<input placeholder="Select Report by date" data-provide='datepicker' />
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Maximum</th>
+      <th scope="col">Minimum</th>
+      <th scope="col">Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @readings.maximum(:level)%></td>
+      <td><%= @readings.minimum(:level)%></td>
+      <td><%= @readings.average(:level)%></td>
+    </tr>
+   
+  </tbody>
+</table>
