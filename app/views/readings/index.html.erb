@@ -1,24 +1,24 @@
 <h3>Daily Report</h3>
+<button class='btn btn-primary'>
+    <%= link_to 'Add Glucose Reading', new_reading_path, class: 'text-white' %>
+</button>
+<hr>
+<div class="row">
+    <div class="col-md-8">
+    <%= render "reading_list", readings: @readings %>
+    </div>
+    <div class="col-md-4">
+        <h3>Search Report By</h3>
+        <p><%= link_to 'Daily', search_path(q: 'Daily')%></p>
+        <p><%= link_to 'Monthly', search_path(q: 'Monthly')%></p>
+        <%= form_with(url: search_path, method: :get, data: { turbo_frame: 'readings' }) do |f| %>
+            <%= f.date_field :q, autofocus: true, class: 'form-control w-50 ', placeholder: 'Select date' %>
+            <div class="my-3">
+                <%= f.submit 'Search', class: 'btn btn-primary' %>
+            </div>
+        <% end %>
+    </div>
+</div>
 
-<button>Daily Report</button>
-<button>Monthly Report</button>
-<input placeholder="Select Report by date" data-provide='datepicker' />
 
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Maximum</th>
-      <th scope="col">Minimum</th>
-      <th scope="col">Average</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @readings.maximum(:level)%></td>
-      <td><%= @readings.minimum(:level)%></td>
-      <td><%= @readings.average(:level)%></td>
-    </tr>
-   
-  </tbody>
-</table>
