@@ -1,10 +1,13 @@
 class ReadingsController < ApplicationController
   def index
+    authorize Reading
+
     @readings = current_user.readings.today
   end
 
   def create
     @reading = current_user.readings.create(reading_params)
+    authorize(@reading)
     if @reading.valid?
       redirect_to root_path, notice: 'Glucose level was successfully added.'
     else

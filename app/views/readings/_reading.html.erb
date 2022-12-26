@@ -1,4 +1,6 @@
 <%= turbo_frame_tag "readings" do %>
+<h3><%= reading_header(params["q"]) %></h3>
+
     <% if readings.present? %>
         <table class="table table-striped">
             <thead>

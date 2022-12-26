@@ -1,5 +1,4 @@
-<h3>Daily Report</h3>
-<button class='btn btn-primary'>
+<button class='btn btn-primary mt-2'>
     <%= link_to 'Add Glucose Reading', new_reading_path, class: 'text-white' %>
 </button>
 <hr>
@@ -9,9 +8,9 @@
     </div>
     <div class="col-md-4">
         <h3>Search Report By</h3>
-        <p><%= link_to 'Daily', search_path(q: 'Daily')%></p>
-        <p><%= link_to 'Monthly', search_path(q: 'Monthly')%></p>
-        <%= form_with(url: search_path, method: :get, data: { turbo_frame: 'readings' }) do |f| %>
+        <p><%= link_to 'Daily', search_path(q: 'Daily') %></p>
+        <p><%= link_to 'Monthly', search_path(q: 'Monthly') %></p>
+        <%= form_with(url: search_path, method: :get, data: { turbo_frame: 'readings', turbo_action: 'advance' }) do |f| %>
             <%= f.date_field :q, autofocus: true, class: 'form-control w-50 ', placeholder: 'Select date' %>
             <div class="my-3">
                 <%= f.submit 'Search', class: 'btn btn-primary' %>
