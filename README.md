@@ -1,24 +1,30 @@
-# README
+##### Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Ruby [3.1.2]
+- Rails [7.0.4]
 
-* Ruby version
+##### 1. Create and setup the database
 
-* System dependencies
+Run the following commands to create and setup the database.
 
-* Configuration
+```ruby
+bundle exec rake db:create
+bundle exec rake db:setup
+bundle exec rake db:seed
+```
 
-* Database creation
+##### 2. Start the Rails server
 
-* Database initialization
+You can start the rails server using the command given below.
 
-* How to run the test suite
+```ruby
+bundle exec rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+##### 3. Run test
 
-* Deployment instructions
-
-* ...
+```ruby
+rspec
+```
